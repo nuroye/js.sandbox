@@ -9,5 +9,5 @@ console.log(array);
 
 
 //Second Question
-var array2=["Banana",["Oranges"], "Blueberries"];
-console.log(array2[1] [0]);
+var array2=["Banana",["Apples",["Oranges"], "Blueberries"]];
+console.log(array2[1] [1]);
