@@ -48,28 +48,28 @@ var database =[
 
 ]
 
-database.push(login)
 
 /*3. Accept username, password & status from the prompt 
 and add it to the database array */
 
+//accept input from user
 var userName=prompt("Please Enter Username");
 var password=  prompt("Please Enter Password")
 var status=prompt("Please Enter Status")
 
-
+//add new user to the database
 database.push({
     username: userName,
     password:password,
     status:status
 })
-
+ console.log(database);
 
 function signinForEach(username, password){
+    var result="";
     database.forEach(function(user){
-        console.log(user)
-        if (user.password === password && user.usename === username){
-        console.log("Your username is" + user.username + "Your password is" + user.password );
+        if (user.password === password && user.username === username){
+        console.log("Your username is" + username + "Your password is" + password );
             return
         }
         else{
@@ -77,6 +77,7 @@ function signinForEach(username, password){
         
         }
     })
+        return result;
 }
 
 
@@ -85,10 +86,20 @@ function signInForLoop(username, password){
         if(username === database[i].username && 
             password === database[i].password)
            {
-                console.log(username + "You are logged in !!!")
+                result =username + "You are logged in !!!";
+                break;
+
             }
     }
-
+        return result
 }
 
-signinForEach("nuroye, nuftech2022");
+
+var result = signInForEach(userName, password);
+
+if(result !== ""){
+    console.log(result)
+}
+else{
+    console.log("Sorry your username or password is invalid");
+}
